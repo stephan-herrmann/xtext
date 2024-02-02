@@ -20,40 +20,25 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.xtext.builder.tests.BuilderTestLanguageInjectorProvider;
-import org.eclipse.xtext.builder.tests.internal.TestsActivator;
-import org.eclipse.xtext.builder.tests.internal.TestsActivatorCustom;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.IResourceDescriptionsProvider;
-import org.eclipse.xtext.testing.InjectWith;
-import org.eclipse.xtext.testing.XtextRunner;
 import org.eclipse.xtext.ui.XtextProjectHelper;
 import org.eclipse.xtext.util.StringInputStream;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import com.google.inject.Inject;
-import com.google.inject.Injector;
 
 /**
  * @author sherrmann - Initial contribution and API
+ * @author Lorenzo Bettini - make it appropriate for reproducing https://github.com/eclipse/xtext/issues/2920
  */
-@RunWith(XtextRunner.class)
-@InjectWith(GH2920Test.BuilderTestLanguageInjectorProviderGH2920.class)
 public class GH2920Test extends AbstractParticipatingBuilderTest {
 	private IJavaProject javaProject;
 
 	@Inject private IResourceDescriptionsProvider descriptionsProvider;
 
 	private List<String> descriptionsInOutputFolder = new ArrayList<>();
-
-	public static class BuilderTestLanguageInjectorProviderGH2920 extends BuilderTestLanguageInjectorProvider {
-		@Override
-		public Injector getInjector() {
-			return TestsActivator.getInstance().getInjector(TestsActivatorCustom.ORG_ECLIPSE_XTEXT_BUILDER_TESTS_BUILDERTESTLANGUAGE_GH2920);
-		}
-	}
 
 	@Before
 	public void createProjectUnderTest() throws Exception {
