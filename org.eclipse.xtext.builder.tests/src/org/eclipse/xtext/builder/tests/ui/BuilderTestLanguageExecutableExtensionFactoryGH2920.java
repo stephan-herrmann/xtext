@@ -14,6 +14,8 @@ import org.eclipse.xtext.builder.tests.internal.TestsActivatorCustom;
 import com.google.inject.Injector;
 
 /**
+ * This allows customizations in the UI, specific for some test scenarions, without creating new languages.
+ * 
  * @author Lorenzo Bettini - Initial contribution and API
  */
 public class BuilderTestLanguageExecutableExtensionFactoryGH2920 extends BuilderTestLanguageExecutableExtensionFactory {
@@ -21,6 +23,7 @@ public class BuilderTestLanguageExecutableExtensionFactoryGH2920 extends Builder
 	@Override
 	protected Injector getInjector() {
 		TestsActivator activator = TestsActivator.getInstance();
-		return activator != null ? activator.getInjector(TestsActivatorCustom.ORG_ECLIPSE_XTEXT_BUILDER_TESTS_BUILDERTESTLANGUAGE_GH2920) : null;
+		return activator != null ? activator.getInjector(TestsActivatorCustom.ORG_ECLIPSE_XTEXT_BUILDER_TESTS_BUILDERTESTLANGUAGE_GH2920)
+				: null;
 	}
 }
