@@ -10,8 +10,6 @@ package org.eclipse.xtext.builder.tests.ui;
 
 import org.eclipse.xtext.builder.tests.internal.TestsActivator;
 import org.eclipse.xtext.builder.tests.internal.TestsActivatorCustom;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.FrameworkUtil;
 
 import com.google.inject.Injector;
 
@@ -19,11 +17,6 @@ import com.google.inject.Injector;
  * @author Lorenzo Bettini - Initial contribution and API
  */
 public class BuilderTestLanguageExecutableExtensionFactoryGH2920 extends BuilderTestLanguageExecutableExtensionFactory {
-
-	@Override
-	protected Bundle getBundle() {
-		return FrameworkUtil.getBundle(TestsActivatorCustom.class);
-	}
 
 	@Override
 	protected Injector getInjector() {
